@@ -1,28 +1,28 @@
 package com.prueba.desarrollo.gaia.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "SABOR")
-public class Sabor {
+@Table(name = "TIPOHELADO")
+public class TipoHelado {
 
-    private Long idSabor;
+    private Long idTipoHelado;
     private String nombre;
-    private TipoHelado tipoHelado;
+    private Sabor sabor;
 
     @Id
-    @Column(name = "IDSABOR")
+    @Column(name = "IDTIPOHELADO")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getIdSabor() {
-        return idSabor;
+    public Long getIdTipoHelado() {
+        return idTipoHelado;
     }
 
     @Column(name = "NOMBRE", nullable = false, length = 255)
@@ -30,21 +30,22 @@ public class Sabor {
         return nombre;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "sabor", cascade = CascadeType.PERSIST)
-    public TipoHelado getTipoHelado() {
-        return tipoHelado;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "IDSABOR", referencedColumnName = "IDSABOR")
+    public Sabor getSabor() {
+        return sabor;
     }
 
-    public void setIdSabor(Long idSabor) {
-        this.idSabor = idSabor;
+    public void setIdTipoHelado(Long idTipoHelado) {
+        this.idTipoHelado = idTipoHelado;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setTipoHelado(TipoHelado tipoHelado) {
-        this.tipoHelado = tipoHelado;
+    public void setSabor(Sabor sabor) {
+        this.sabor = sabor;
     }
 
 }

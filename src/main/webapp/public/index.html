@@ -4,18 +4,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Helados</title>
+    <link rel="stylesheet" href="public/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/dist/css/prueba-desarrollo.min.css">
 </head>
 <body data-ng-app="HeladosApp">
+    <script type="text/javascript" src="public/dist/vendor/vendor.js"></script>
 
     <div class="helados-content-app" ui-view></div>
     <script type="text/javascript">
         var urls = {
-            'consultarTiposHelados' : 'public/views/tiposHelados.html',
-            'crearTipoHelado' : 'public/views/crearTipoHelado.html',
-            'error' : 'public/views/error.html'
+            'consultarTiposHelados' : 'public/dist/views/tiposHelados.html',
+            'crearTipoHelado' : 'public/dist/views/crearTipoHelado.html',
+            'error' : 'public/dist/views/error.html'
         };
     </script>
-    <script type="text/javascript" src="dist/app/app.min.js"></script>
+    <script type="text/javascript" src="public/dist/app/app.min.js"></script>
 
 </body>
 </html>

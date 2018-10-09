@@ -1,10 +1,10 @@
 (function() {
     'use strict';
 
-var HeladosApp = angular.module('HeladosApp', [ 'ngResource', 'ngRoute', 'ngCookies', 'ui.router' ]);
+var HeladosApp = angular.module('HeladosApp', [ 'ngRoute', 'ngCookies', 'ui.router' ]);
 
 HeladosApp.config(function ($stateProvider, $urlRouterProvider) {
-    "use strict";
+
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {
@@ -27,6 +27,7 @@ HeladosApp.constant('endpoints', {
     operations : {
         getTiposHeladosList : '/tiposhelados',
         createTipoHelado: '/tiposhelados',
+        deleteTipoHelado: '/tiposhelados'
     }
 })
 
@@ -37,6 +38,6 @@ HeladosApp.constant('endpoints', {
 
 .constant('constants', {
     response_type_json : 'json',
-})
+});
 
 })();

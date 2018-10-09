@@ -1,5 +1,5 @@
 {
-  "name": "PruebaDesarrolloJava",
+  "name": "prueba-desarrollo-java",
   "homepage": "https://github.com/Giggs3244/prueba-desarrollo-gaia-java",
   "authors": [
     "Bryan Bedoya <bryan.bedoy@gmail.com>"
@@ -8,6 +8,9 @@
   "main": "",
   "license": "MIT",
   "private": true,
+  "config": {
+    "bower_directory": "src/main/webapp/public/vendor"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
@@ -16,12 +19,16 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.7.4",
-    "angular-cookies": "^1.7.4",
-    "angular-route": "^1.7.4",
-    "angular-sanitize": "^1.7.4",
+    "angular": "1.7.0",
+    "angular-cookies": "1.7.0",
+    "angular-route": "1.7.0",
+    "angular-sanitize": "1.7.0",
     "angular-ui-router": "^0.4.2",
+    "bootstrap": "3.3.7",
     "jquery": "3.3.1",
     "jquery-ui": "^1.12.1"
+  },
+  "resolutions": {
+    "angular": "1.7.0"
   }
 }

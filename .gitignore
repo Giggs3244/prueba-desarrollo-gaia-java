@@ -1,5 +1,8 @@
 /target/
 /logs/
+/bower_components/
+/node_modules/
+src/main/webapp/public/dist/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###

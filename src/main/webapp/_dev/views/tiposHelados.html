@@ -1,0 +1,32 @@
+<div></div>
+<div class="container" data-ng-init=vm.init()>
+	<div class="table-wrapper">
+		<div class="table-title">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2>
+						<b>Tipos de Helados</b>
+					</h2>
+				</div>
+			</div>
+		</div>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Nombre tipo de helado</th>
+					<th>Sabor del helado</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="tipoHelado in vm.tiposHelados">
+					<td>{{ tipoHelado.nombreTipoHelado }}</td>
+					<td>{{ tipoHelado.nombreSabor }}</td>
+					<td>
+					   <a href="" data-ng-click="vm.eliminarTipoHelado($index)" class="delete"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Eliminar tipo de helado"></span></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

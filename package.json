@@ -1,0 +1,52 @@
+{
+  "name": "prueba-desarrollo-java",
+  "version": "0.0.1-SNAPSHOT",
+  "authors": [
+    "Bryan Bedoya"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Giggs3244/prueba-desarrollo-gaia-java"
+  },
+  "engines": {
+    "node": ">=6.10.1"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "update-deps": "npm update",
+    "bower-install": "bower install",
+    "bower-update": "bower update -f",
+    "gulp": "gulp"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bower": "^1.8.4",
+    "gulp": "^3.9.1",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-debug": "^3.1.0",
+    "gulp-filter": "^5.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-main-bower-files": "^1.6.2",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "jshint": "latest",
+    "jshint-stylish": "latest",
+    "main-bower-files": "^2.13.1",
+    "minimatch": "^3.0.3",
+    "ng-file-model": "0.0.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.16.3",
+    "css-loader": "^0.25.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.2"
+  }
+}

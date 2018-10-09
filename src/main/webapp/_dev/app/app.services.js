@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('HeladosApp').factory('Services', Services)
+    angular.module('HeladosApp').factory('Services', Services);
 
     Services.$inject = [ '$http', 'header_content_json', 'constants' ];
 
@@ -8,7 +8,8 @@
 
         var services = {
             invokeRequestPost : invokeRequestPost,
-            invokeRequestGet : invokeRequestGet
+            invokeRequestGet : invokeRequestGet,
+            invokeRequestDelete : invokeRequestDelete
         };
 
         return services;
@@ -22,6 +23,13 @@
         
         function invokeRequestGet(url) {
             return $http.get(url, {
+                headers : header_content_json,
+                responseType : constants.response_type_json
+            });
+        }
+        
+        function invokeRequestDelete(url) {
+            return $http.delete(url, {
                 headers : header_content_json,
                 responseType : constants.response_type_json
             });

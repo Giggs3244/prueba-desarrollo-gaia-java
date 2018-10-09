@@ -10,11 +10,11 @@ Una vez descargado el código fuente y descomprimido, abrir un CMD en la raíz d
 
 + npm install --save-dev gulp (para instalar gulp en el proyecto)
 
-+ npm install (para descargaer las dependencias de package.json)
++ npm install (para descargar las dependencias de package.json)
 
 + gulp (para ejecutar las tareas definidas con gulp)
 
-+ ./mvnw clean install (para compilar el proyecto Java)
++ mvnw clean install (para compilar el proyecto Java)
 
 + java -jar java-0.0.1-SNAPSHOT.jar (para ejecutar la aplicación)
 

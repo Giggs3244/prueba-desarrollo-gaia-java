@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.prueba.desarrollo.gaia.entity.Sabor;
 import com.prueba.desarrollo.gaia.entity.TipoHelado;
-import com.prueba.desarrollo.gaia.model.TipoHeladoDto;
+import com.prueba.desarrollo.gaia.model.TipoHeladoRegisterDto;
+import com.prueba.desarrollo.gaia.model.TipoHeladoUpdateDto;
 import com.prueba.desarrollo.gaia.repository.SaborRepository;
 import com.prueba.desarrollo.gaia.repository.TipoHeladoRepository;
 
@@ -26,7 +27,8 @@ public class TipoHeladoCommandServiceImpl implements ITipoHeladoCommandService {
     }
 
     @Override
-    public void createTipoHelado(TipoHeladoDto tipoHeladoDto) {
+    public void createTipoHelado(TipoHeladoRegisterDto tipoHeladoDto) {
+
         TipoHelado tipoHelado = new TipoHelado();
 
         tipoHelado.setNombre(tipoHeladoDto.getNombre());
@@ -38,6 +40,29 @@ public class TipoHeladoCommandServiceImpl implements ITipoHeladoCommandService {
 
         logger.debug("Tipo de Helado que se va a almacenar {}", tipoHelado);
         tipoHeladoRepository.save(tipoHelado);
+    }
+
+    @Override
+    public void updateTipoHelado(TipoHeladoUpdateDto tipoHeladoDto) {
+
+        TipoHelado tipoHelado = tipoHeladoRepository.getOne(tipoHeladoDto.getIdTipoHelado());
+        Sabor saborActual = tipoHelado.getSabor();
+
+        if (saborActual.getIdSabor() != tipoHeladoDto.getIdSabor()) {
+            logger.debug("Se actualiza el sabor del tipo de helado");
+            Sabor sabor = saborRepository.getOne(tipoHeladoDto.getIdSabor());
+            tipoHelado.setSabor(sabor);
+        }
+
+        tipoHelado.setNombre(tipoHeladoDto.getNombre());
+        tipoHeladoRepository.save(tipoHelado);
+    }
+
+    @Override
+    public void deleteTipoHelado(Long idTipoHelado) {
+
+        tipoHeladoRepository.deleteById(idTipoHelado);
+
     }
 
 }

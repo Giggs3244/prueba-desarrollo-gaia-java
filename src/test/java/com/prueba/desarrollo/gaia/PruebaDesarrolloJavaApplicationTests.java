@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prueba.desarrollo.gaia.model.TipoHeladoDto;
+import com.prueba.desarrollo.gaia.model.TipoHeladoRegisterDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -49,7 +49,7 @@ public class PruebaDesarrolloJavaApplicationTests {
 
     @Test
     public void createTipoHelado() throws Exception {
-        TipoHeladoDto tipoHeladoDto = new TipoHeladoDto();
+        TipoHeladoRegisterDto tipoHeladoDto = new TipoHeladoRegisterDto();
         tipoHeladoDto.setNombre("Nuevo Tipo Helado delicioso");
         tipoHeladoDto.setIdSabor(1L);
 

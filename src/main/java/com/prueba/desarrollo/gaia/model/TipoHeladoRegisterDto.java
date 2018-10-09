@@ -3,7 +3,7 @@ package com.prueba.desarrollo.gaia.model;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class TipoHeladoDto {
+public class TipoHeladoRegisterDto {
 
     @NotBlank
     private String nombre;

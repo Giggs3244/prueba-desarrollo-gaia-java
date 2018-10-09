@@ -14,7 +14,7 @@ Una vez descargado el código fuente y descomprimido, abrir un CMD en la raíz d
 
 + gulp (para ejecutar las tareas definidas con gulp)
 
-+ mvnw clean install -Dmaven.test.skip=true (para compilar el proyecto Java)
++ mvnw clean install -Dmaven.test.skip=true o en Windows PowerShell ./mvnw clean install "-Dmaven.test.skip=true" (para compilar el proyecto Java)
 
 + java -jar target/java-0.0.1-SNAPSHOT.jar (para ejecutar la aplicación)
 

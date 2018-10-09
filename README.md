@@ -14,8 +14,8 @@ Una vez descargado el código fuente y descomprimido, abrir un CMD en la raíz d
 
 + gulp (para ejecutar las tareas definidas con gulp)
 
-+ mvnw clean install (para compilar el proyecto Java)
++ mvnw clean install -Dmaven.test.skip=true (para compilar el proyecto Java)
 
-+ java -jar java-0.0.1-SNAPSHOT.jar (para ejecutar la aplicación)
++ java -jar target/java-0.0.1-SNAPSHOT.jar (para ejecutar la aplicación)
 
 + Abrir un navegador e ingresar a la dirección http://localhost:8080/

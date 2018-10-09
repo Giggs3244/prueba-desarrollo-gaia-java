@@ -3,6 +3,7 @@
 /bower_components/
 /node_modules/
 src/main/webapp/public/dist/
+/package-lock.json
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###

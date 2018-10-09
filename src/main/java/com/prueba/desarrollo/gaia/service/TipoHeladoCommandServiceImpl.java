@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.prueba.desarrollo.gaia.entity.Sabor;
 import com.prueba.desarrollo.gaia.entity.TipoHelado;
-import com.prueba.desarrollo.gaia.model.TipoHeladoRegisterDto;
-import com.prueba.desarrollo.gaia.model.TipoHeladoUpdateDto;
+import com.prueba.desarrollo.gaia.model.TipoHeladoDto;
 import com.prueba.desarrollo.gaia.repository.SaborRepository;
 import com.prueba.desarrollo.gaia.repository.TipoHeladoRepository;
 
@@ -27,7 +26,7 @@ public class TipoHeladoCommandServiceImpl implements ITipoHeladoCommandService {
     }
 
     @Override
-    public void createTipoHelado(TipoHeladoRegisterDto tipoHeladoDto) {
+    public void createTipoHelado(TipoHeladoDto tipoHeladoDto) {
 
         TipoHelado tipoHelado = new TipoHelado();
 
@@ -43,9 +42,9 @@ public class TipoHeladoCommandServiceImpl implements ITipoHeladoCommandService {
     }
 
     @Override
-    public void updateTipoHelado(TipoHeladoUpdateDto tipoHeladoDto) {
+    public void updateTipoHelado(Long idTipoHelado, TipoHeladoDto tipoHeladoDto) {
 
-        TipoHelado tipoHelado = tipoHeladoRepository.getOne(tipoHeladoDto.getIdTipoHelado());
+        TipoHelado tipoHelado = tipoHeladoRepository.getOne(idTipoHelado);
         Sabor saborActual = tipoHelado.getSabor();
 
         if (saborActual.getIdSabor() != tipoHeladoDto.getIdSabor()) {

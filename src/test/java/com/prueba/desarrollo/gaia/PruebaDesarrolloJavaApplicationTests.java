@@ -20,8 +20,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.prueba.desarrollo.gaia.model.TipoHeladoRegisterDto;
-import com.prueba.desarrollo.gaia.model.TipoHeladoUpdateDto;
+import com.prueba.desarrollo.gaia.model.TipoHeladoDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -52,7 +51,7 @@ public class PruebaDesarrolloJavaApplicationTests {
 
     @Test
     public void createTipoHelado() throws Exception {
-        TipoHeladoRegisterDto tipoHeladoDto = new TipoHeladoRegisterDto();
+        TipoHeladoDto tipoHeladoDto = new TipoHeladoDto();
         tipoHeladoDto.setNombre("Nuevo Tipo Helado delicioso");
         tipoHeladoDto.setIdSabor(Long.valueOf(1));
 
@@ -65,14 +64,16 @@ public class PruebaDesarrolloJavaApplicationTests {
 
     @Test
     public void updateTipoHelado() throws Exception {
-        TipoHeladoUpdateDto tipoHeladoDto = new TipoHeladoUpdateDto();
-        tipoHeladoDto.setIdTipoHelado(Long.valueOf(1));
+        Long idTipoHelado = Long.valueOf(1);
+
+        TipoHeladoDto tipoHeladoDto = new TipoHeladoDto();
         tipoHeladoDto.setIdSabor(Long.valueOf(1));
         tipoHeladoDto.setNombre("Updated Tipo Helado");
 
         String content = objectMapper.writeValueAsString(tipoHeladoDto);
 
-        ResultActions resultActions = this.mvc.perform(put("/api/v1/tiposhelados").contentType(MediaType.APPLICATION_JSON).content(content))
+        ResultActions resultActions = this.mvc
+                .perform(put("/api/v1/tiposhelados/" + idTipoHelado).contentType(MediaType.APPLICATION_JSON).content(content))
                 .andExpect(status().isOk());
         resultActions.andDo(print());
     }

@@ -1,49 +1,35 @@
 package com.prueba.desarrollo.gaia.model;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class TipoHeladoDto {
 
-    private Long idTipoHelado;
+    @NotBlank
     private String nombre;
-    private SaborDto sabor;
 
-    public TipoHeladoDto() {
-        super();
-    }
-
-    public TipoHeladoDto(Long idTipoHelado, String nombre, Long idSabor, String nombreSabor) {
-        super();
-        this.idTipoHelado = idTipoHelado;
-        this.nombre = nombre;
-        this.sabor = new SaborDto(idSabor, nombreSabor);
-    }
-
-    public Long getIdTipoHelado() {
-        return idTipoHelado;
-    }
+    @NotNull
+    private Long idSabor;
 
     public String getNombre() {
         return nombre;
-    }
-
-    public SaborDto getSabor() {
-        return sabor;
-    }
-
-    public void setIdTipoHelado(Long idTipoHelado) {
-        this.idTipoHelado = idTipoHelado;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setSabor(SaborDto sabor) {
-        this.sabor = sabor;
+    public Long getIdSabor() {
+        return idSabor;
+    }
+
+    public void setIdSabor(Long idSabor) {
+        this.idSabor = idSabor;
     }
 
     @Override
     public String toString() {
-        return "TipoHeladoDto [idTipoHelado=" + idTipoHelado + ", nombre=" + nombre + ", sabor=" + sabor + "]";
+        return "TipoHeladoDto [nombre=" + nombre + ", idSabor=" + idSabor + "]";
     }
 
 }

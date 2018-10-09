@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name = "TIPOHELADO")
@@ -18,9 +19,10 @@ public class TipoHelado {
     private String nombre;
     private Sabor sabor;
 
+    @TableGenerator(name = "TipoHelado_Gen", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", pkColumnValue = "TipoHelado_Gen", initialValue = 1000, allocationSize = 1)
     @Id
     @Column(name = "IDTIPOHELADO")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "TipoHelado_Gen")
     public Long getIdTipoHelado() {
         return idTipoHelado;
     }
@@ -46,6 +48,11 @@ public class TipoHelado {
 
     public void setSabor(Sabor sabor) {
         this.sabor = sabor;
+    }
+
+    @Override
+    public String toString() {
+        return "TipoHelado [idTipoHelado=" + idTipoHelado + ", nombre=" + nombre + "]";
     }
 
 }

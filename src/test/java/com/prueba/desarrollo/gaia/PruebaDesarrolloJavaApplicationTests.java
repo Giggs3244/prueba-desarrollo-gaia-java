@@ -1,6 +1,7 @@
 package com.prueba.desarrollo.gaia;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -16,6 +17,9 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.prueba.desarrollo.gaia.model.TipoHeladoDto;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PruebaDesarrolloJavaApplicationTests {
@@ -24,10 +28,12 @@ public class PruebaDesarrolloJavaApplicationTests {
     private WebApplicationContext context;
 
     private MockMvc mvc;
+    private ObjectMapper objectMapper;
 
     @Before
     public void setUp() throws Exception {
         this.mvc = MockMvcBuilders.webAppContextSetup(this.context).build();
+        objectMapper = new ObjectMapper();
     }
 
     @Test
@@ -36,8 +42,21 @@ public class PruebaDesarrolloJavaApplicationTests {
 
     @Test
     public void getTiposHeladoList() throws Exception {
-        ResultActions resultActions = this.mvc.perform(get("/api/v1/tiposhelado").contentType(MediaType.APPLICATION_JSON))
+        ResultActions resultActions = this.mvc.perform(get("/api/v1/tiposhelados").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+        resultActions.andDo(print());
+    }
+
+    @Test
+    public void createTipoHelado() throws Exception {
+        TipoHeladoDto tipoHeladoDto = new TipoHeladoDto();
+        tipoHeladoDto.setNombre("Nuevo Tipo Helado delicioso");
+        tipoHeladoDto.setIdSabor(1L);
+
+        String request = objectMapper.writeValueAsString(tipoHeladoDto);
+
+        ResultActions resultActions = this.mvc
+                .perform(post("/api/v1/tiposhelados").contentType(MediaType.APPLICATION_JSON).content(request)).andExpect(status().isOk());
         resultActions.andDo(print());
     }
 

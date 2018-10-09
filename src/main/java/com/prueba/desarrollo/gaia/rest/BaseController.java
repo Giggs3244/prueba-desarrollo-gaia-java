@@ -2,6 +2,8 @@ package com.prueba.desarrollo.gaia.rest;
 
 import java.util.Date;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -32,10 +34,13 @@ public class BaseController {
 
         if (e instanceof MethodArgumentNotValidException || e instanceof MissingServletRequestParameterException) {
             respuesta.setCodigo(HttpStatus.BAD_REQUEST.value());
-            respuesta.setDescripcion("Revisar los parametros que se enviaron en la peticion");
+            respuesta.setDescripcion("Se enviaron parametros invalidos en la peticion");
+        } else if (e instanceof EntityNotFoundException) {
+            respuesta.setCodigo(HttpStatus.NOT_FOUND.value());
+            respuesta.setDescripcion("No se encontro la entidad solicitada");
         } else {
             respuesta.setCodigo(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            respuesta.setDescripcion(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase());
+            respuesta.setDescripcion("Se presento un error general, por favor intentelo nuevamente mas tarde");
         }
 
         respuesta.setDetalleError(e.getMessage());

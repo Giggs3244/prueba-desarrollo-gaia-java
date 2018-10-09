@@ -1,1 +1,21 @@
-<h2>Hola Mundo</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Helados</title>
+</head>
+<body data-ng-app="HeladosApp">
+
+    <div class="helados-content-app" ui-view></div>
+    <script type="text/javascript">
+        var urls = {
+            'consultarTiposHelados' : 'public/views/tiposHelados.html',
+            'crearTipoHelado' : 'public/views/crearTipoHelado.html',
+            'error' : 'public/views/error.html'
+        };
+    </script>
+    <script type="text/javascript" src="dist/app/app.min.js"></script>
+
+</body>
+</html>

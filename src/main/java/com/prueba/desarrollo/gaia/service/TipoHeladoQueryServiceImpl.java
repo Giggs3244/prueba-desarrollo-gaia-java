@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.prueba.desarrollo.gaia.model.TipoHeladoDto;
 import com.prueba.desarrollo.gaia.repository.TipoHeladoRepository;
 
 @Service
@@ -19,7 +18,7 @@ public class TipoHeladoQueryServiceImpl implements ITipoHeladoQueryService {
     }
 
     @Override
-    public List<TipoHeladoDto> getTiposHeladoList() {
+    public List<com.prueba.desarrollo.gaia.projection.TipoHelado> getTiposHeladoList() {
 
         return tipoHeladoRepository.getTiposHelado();
 
